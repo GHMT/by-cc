@@ -38,11 +38,12 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --coverage --watchAll=false",
+    "test:watch": "react-scripts test --coverage --watchAll=true",
     "eject": "react-scripts eject",
     "lint": "concurrently \"npm:es-lint\" \"npm:style-lint\"",
     "es-lint": "eslint './**' --color --quiet --fix",
-    "style-lint": "stylelint ./**/*.scss --fix"
+    "style-lint": "stylelint ./**/*.scss --color --quiet --fix"
   },
   "eslintConfig": {
     "extends": "react-app"
