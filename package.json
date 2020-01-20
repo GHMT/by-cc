@@ -82,7 +82,7 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "src/App.ts?(x)",
+      "src/**/*.ts?(x)",
       "!src/index.tsx",
       "!src/custom.d.ts",
       "!src/types/**",
