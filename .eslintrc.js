@@ -14,7 +14,8 @@ module.exports = {
     rules: {
         // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
         // e.g. '@typescript-eslint/explicit-function-return-type': 'off',
-        '@typescript-eslint/interface-name-prefix': ['error', 'always'],
+		'@typescript-eslint/interface-name-prefix': ['error', 'always'],
+		'@typescript-eslint/no-empty-interface': ['warn', { 'allowSingleExtends': false }],
         'react-hooks/rules-of-hooks': 'error',
 		'react-hooks/exhaustive-deps': 'warn',
     },
@@ -36,6 +37,7 @@ module.exports = {
 		'prettier' // Leave this as the last plugin!
 	],
     ignorePatterns: [
+		'!**/*.ts?(x)',
 		'**/coverage',
         '**/lib',
         '**/dist',
