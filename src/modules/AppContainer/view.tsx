@@ -1,15 +1,20 @@
 import React from 'react';
-// import { Accordion } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 import { IDummyProps } from './types';
 
 const view = (props: IDummyProps) => {
-	const { players } = props;
+	const { players, attacking, handleAttack } = props;
 	return (
 		<React.Fragment>
-			{players.map((player, index) => (
-				<div key={index}>{player.health}</div>
-			))}
+			<div>
+				{players.map((player, index) => (
+					<div key={index}>{player.health}</div>
+				))}
+			</div>
+			<Button variant="primary" disabled={attacking} onClick={handleAttack}>
+				ATTACK!
+			</Button>
 		</React.Fragment>
 	);
 };

@@ -16,6 +16,7 @@ module.exports = {
         // e.g. '@typescript-eslint/explicit-function-return-type': 'off',
 		'@typescript-eslint/interface-name-prefix': ['error', 'always'],
 		'@typescript-eslint/no-empty-interface': ['warn', { 'allowSingleExtends': false }],
+		'no-empty-pattern': 'off',
         'react-hooks/rules-of-hooks': 'error',
 		'react-hooks/exhaustive-deps': 'warn',
     },
