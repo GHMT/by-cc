@@ -9,6 +9,9 @@ const view = (props: IDummyProps) => {
 		<React.Fragment>
 			<div>{player.name}</div>
 			<div>{player.health}</div>
+			{player.dices.map((diceResult, index) => (
+				<div key={index}>{diceResult}</div>
+			))}
 		</React.Fragment>
 	);
 };

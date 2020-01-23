@@ -1,9 +1,11 @@
 import { Player } from 'core/domain/Player';
+import { IAppState } from 'core/store/reducers/AppState/types/state';
 
 // Dummy and Smart shared props
 interface ISharedOwnProps {
 	// Custom props shared between smart and dummy
 	player: Player;
+	attacking: IAppState['attacking'];
 }
 
 type ISharedExternalProps = {}; // External libraries props shared between smart and dummy
@@ -22,6 +24,7 @@ interface ISmartOwnState {} // State to be defined and used only inside smart co
 
 interface ISmartOwnStateToDummyProps {
 	// Smart state to be passed to dummy through its props
+	// dicesResult: number[];
 }
 
 // Dummy Component types

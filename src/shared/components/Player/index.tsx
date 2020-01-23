@@ -1,17 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import View from './view';
-import { ISmartProps } from './types';
+import { ISmartProps, ISmartState } from './types';
 
 const Player = (props: ISmartProps) => {
-	const { player } = props;
+	const { player, attacking } = props;
 
-	// const [customId, setCustomId] = useState<IDummyProps['customId']>(null)
+	// const [dicesResult, setDicesResult] = useState<ISmartState['dicesResult']>(Array(player.dicesAmount).fill(0));
 
-	// const handlecustomId = (id: IDummyProps['customId']) => {
-	//     setCustomId(id);
-	// }
-
-	return <View player={player} />;
+	return <View player={player} attacking={attacking} /*dicesResult={dicesResult}*/ />;
 };
 
 export default Player;

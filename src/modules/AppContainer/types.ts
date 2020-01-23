@@ -3,13 +3,15 @@ import { Dispatch } from 'redux';
 import { Player } from 'core/domain/Player';
 import { IAppStore } from 'core/store/reducers';
 import { IAppState } from 'core/store/reducers/AppState/types/state';
-import { IAttackStartAction } from 'core/store/reducers/AppState/types/actions';
-import { IAttackStartPayload } from 'core/store/reducers/AppState/types/action-payloads';
+import { IAttackStartAction, IAttackFinishAction } from 'core/store/reducers/AppState/types/actions';
+import { IAttackStartPayload, IAttackFinishPayload } from 'core/store/reducers/AppState/types/action-payloads';
 
 // Auxiliar types
 type IStateToProps = IAppState; /* Add other states in case of needed in props */
+
 interface IDispatchersProps {
 	attackStart(params: IAttackStartPayload): IAttackStartAction;
+	attackFinish(params: IAttackFinishPayload): IAttackFinishAction;
 }
 
 // Dispatch and State to props map type
@@ -26,7 +28,7 @@ type ISharedExternalProps = {}; // External libraries props shared between smart
 type ISharedProps = ISharedOwnProps & ISharedExternalProps;
 
 // Smart Component types
-export type ISmartProps = ISmartOwnProps & ISharedProps & IStateToProps & IDispatchersProps;
+export type ISmartProps = ISmartOwnProps & ISharedProps & IDispatchersProps & IStateToProps;
 export type ISmartState = ISmartOwnState & ISmartOwnStateToDummyProps;
 
 interface ISmartOwnProps {
@@ -44,8 +46,9 @@ export type IDummyProps = IDummyOwnProps & ISmartOwnStateToDummyProps & ISharedP
 
 interface IDummyOwnProps {
 	// Props needed only by the dummy component
-	players: Player[];
 	attacking: IAppState['attacking'];
+	winner: IAppState['winner'];
+	players: Player[];
 }
 
 // Types for event handlings

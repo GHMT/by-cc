@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 
 import { IDummyProps } from './types';
+import Player from 'shared/components/Player';
 
 const view = (props: IDummyProps) => {
 	const { players, attacking, handleAttack } = props;
@@ -9,7 +10,9 @@ const view = (props: IDummyProps) => {
 		<React.Fragment>
 			<div>
 				{players.map((player, index) => (
-					<div key={index}>{player.health}</div>
+					<div key={index}>
+						<Player player={player} attacking={attacking} />
+					</div>
 				))}
 			</div>
 			<Button variant="primary" disabled={attacking} onClick={handleAttack}>

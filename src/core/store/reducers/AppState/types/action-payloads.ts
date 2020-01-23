@@ -1,3 +1,5 @@
+import { IPlayer } from 'core/domain/Player';
+
 // import { DefaultActionTypes } from 'reduxsauce';
 
 export interface IAttackStartPayload {}
@@ -5,12 +7,14 @@ export interface IAttackStartPayload {}
 export const attackStartPayload = null;
 
 export interface IAttackFinishPayload {
-	// language: string;
+	players: IPlayer[];
 }
 // export const attackFinishPayload: IAttackFinishPayload = {
 // 	// language: '',
 // };
-export const attackFinishPayload = null;
+export const attackFinishPayload = {
+	players: null,
+};
 
 export interface IPlayAgainPayload {
 	// errorMessage: string;

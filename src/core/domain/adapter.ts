@@ -1,3 +1,4 @@
-export default interface IAdapter<T> {
-	adapt(item: any): T;
+export default interface IAdapter<From, To> {
+	adapt(item: From): To;
+	adaptBack(item: To): From;
 }
