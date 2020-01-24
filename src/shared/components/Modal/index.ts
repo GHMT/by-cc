@@ -1,6 +1,6 @@
 import { ModalInfo } from './components';
 
-export enum IModalType {
+export enum ModalTypes {
 	DAMAGE_INFO = 'DAMAGE_INFO',
 	// GAME_WIN = 'b',
 	// GAME_OVER = 'c',
@@ -9,10 +9,10 @@ export enum IModalType {
 // export type IModalType = 'DAMAGE_INFO';
 // | 'GAME_WIN'
 // | 'GAME_OVER';
-type IModal = { [key in IModalType]: IModalComponents };
+type IModal = { [key in ModalTypes]: IModalComponents };
 
 export interface IModalComponents {
-	component: React.FC;
+	component: React.FC<any>;
 }
 
 const ModalComponents: IModal = {

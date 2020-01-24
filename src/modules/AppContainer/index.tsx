@@ -10,7 +10,7 @@ import { IAttackStartAction, IAttackFinishAction } from 'core/store/reducers/App
 import { Dispatch } from 'redux';
 import { attack, IDamagedPlayer } from 'shared/utils/game-algorithm';
 import { IAttackFinishPayload } from 'core/store/reducers/AppState/types/action-payloads';
-import ModalComponents, { IModalType } from 'shared/components/Modal';
+import ModalComponents, { ModalTypes } from 'shared/components/Modal';
 
 const AppContainer = (props: ISmartProps) => {
 	const { players, attacking, winner, modal, attackStart, attackFinish } = props;
@@ -31,11 +31,11 @@ const AppContainer = (props: ISmartProps) => {
 		if (attacking) {
 			console.log('attacking!');
 			const damagedPlayers = attack(playersClasses);
-			// if (!damagedPlayers.length)
 			setTimeout(() => {
 				attackFinish({
 					players: playersClasses.map(playerCls => PlayerAdapterSingleton.adaptBack(playerCls)),
-					modal: IModalType.DAMAGE_INFO, // ModalComponents.DAMAGE_INFO.type,
+					modal: ModalTypes.DAMAGE_INFO,
+					lastDamagedPlayers: damagedPlayers,
 				});
 			}, 3000);
 		}
@@ -60,13 +60,20 @@ const mapStateToProps: IStateToPropsMap = (state: IAppStore) => ({
 	winner: state.app.winner,
 	players: state.app.players,
 	modal: state.app.modal,
+	lastDamagedPlayers: state.app.lastDamagedPlayers, // TODO: delete if don't used
 	//
 });
 
 const mapDispatchToProps: IDispatchToPropsMap = (dispatch: Dispatch) => ({
 	attackStart: () => dispatch<IAttackStartAction>(AppActions.attackStart({})),
 	attackFinish: (params: IAttackFinishPayload) => {
-		return dispatch<IAttackFinishAction>(AppActions.attackFinish({ players: params.players, modal: params.modal }));
+		return dispatch<IAttackFinishAction>(
+			AppActions.attackFinish({
+				players: params.players,
+				modal: params.modal,
+				lastDamagedPlayers: params.lastDamagedPlayers,
+			}),
+		);
 	},
 
 	// changeLanguage: (params: ISetLanguageRequestPayload) =>

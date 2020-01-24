@@ -10,13 +10,20 @@ import ModalComponents from 'shared/components/Modal';
 import { IModalHideAction } from 'core/store/reducers/AppState/types/actions';
 
 const ModalContainer = (props: ISmartProps) => {
-	const { modal, modalHide } = props;
+	const { modal, lastDamagedPlayers, modalHide } = props;
 
 	const handleClose = () => modalHide({});
 
 	return (
 		<React.Fragment>
-			{modal && <View ModalComponent={ModalComponents[modal].component} show={!!modal} onClose={handleClose} />}
+			{modal && (
+				<View
+					{...props}
+					ModalComponent={ModalComponents[modal].component}
+					show={!!modal}
+					onClose={handleClose}
+				/>
+			)}
 		</React.Fragment>
 	);
 };
@@ -27,6 +34,7 @@ const mapStateToProps: IStateToPropsMap = (state: IAppStore) => ({
 	winner: state.app.winner,
 	players: state.app.players,
 	modal: state.app.modal,
+	lastDamagedPlayers: state.app.lastDamagedPlayers,
 	//
 });
 

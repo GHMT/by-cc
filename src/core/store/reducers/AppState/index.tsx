@@ -3,10 +3,13 @@ import { createReducer } from 'reduxsauce';
 
 import { IAppState, INITIAL_STATE, ImmutableAppState } from './types/state';
 import { AppTypes } from './action-creators';
+import { IAttackFinishPayload } from './types/action-payloads';
 
 const attackStart = (state: ImmutableAppState): ImmutableAppState => state.merge({ attacking: true });
-const attackFinish = (state: ImmutableAppState, { players, modal }: Action & IAppState): ImmutableAppState =>
-	state.merge({ attacking: false, players, modal });
+const attackFinish = (
+	state: ImmutableAppState,
+	{ players, modal, lastDamagedPlayers }: Action & IAttackFinishPayload,
+): ImmutableAppState => state.merge({ attacking: false, players, modal, lastDamagedPlayers });
 const modalShow = (state: ImmutableAppState, { modal }: Action & IAppState): ImmutableAppState =>
 	state.merge({ modal });
 const modalHide = (state: ImmutableAppState): ImmutableAppState => state.merge({ modal: undefined });
