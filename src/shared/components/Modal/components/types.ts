@@ -1,18 +1,13 @@
 import { Dispatch } from 'redux';
+import { Toast } from 'react-bootstrap';
 
-import { Player } from 'core/domain/Player';
 import { IAppStore } from 'core/store/reducers';
 import { IAppState } from 'core/store/reducers/AppState/types/state';
-import { IAttackStartAction, IAttackFinishAction } from 'core/store/reducers/AppState/types/actions';
-import { IAttackStartPayload, IAttackFinishPayload } from 'core/store/reducers/AppState/types/action-payloads';
 
 // Auxiliar types
 type IStateToProps = IAppState; /* Add other states in case of needed in props */
 
-interface IDispatchersProps {
-	attackStart(params: IAttackStartPayload): IAttackStartAction;
-	attackFinish(params: IAttackFinishPayload): IAttackFinishAction;
-}
+interface IDispatchersProps {}
 
 // Dispatch and State to props map type
 export type IStateToPropsMap = (state: IAppStore) => IStateToProps;
@@ -42,17 +37,11 @@ interface ISmartOwnStateToDummyProps {
 }
 
 // Dummy Component types
-export type IDummyProps = IDummyOwnProps & ISmartOwnStateToDummyProps & ISharedProps & IHandlers;
+export type IDummyProps = IDummyOwnProps & ISmartOwnStateToDummyProps & ISharedProps & IHandlers & Toast['props'];
 
 interface IDummyOwnProps {
 	// Props needed only by the dummy component
-	attacking: IAppState['attacking'];
-	winner: IAppState['winner'];
-	players: Player[];
-	modal: IAppState['modal'];
 }
 
 // Types for event handlings
-export interface IHandlers {
-	handleAttack: React.MouseEventHandler<HTMLButtonElement>;
-}
+export interface IHandlers {}

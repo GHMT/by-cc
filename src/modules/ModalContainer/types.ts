@@ -1,17 +1,17 @@
 import { Dispatch } from 'redux';
+import { Toast } from 'react-bootstrap';
 
-import { Player } from 'core/domain/Player';
 import { IAppStore } from 'core/store/reducers';
 import { IAppState } from 'core/store/reducers/AppState/types/state';
-import { IAttackStartAction, IAttackFinishAction } from 'core/store/reducers/AppState/types/actions';
-import { IAttackStartPayload, IAttackFinishPayload } from 'core/store/reducers/AppState/types/action-payloads';
+import { IModalComponents } from 'shared/components/Modal';
+import { IModalHideAction } from 'core/store/reducers/AppState/types/actions';
+import { IModalHidePayload } from 'core/store/reducers/AppState/types/action-payloads';
 
 // Auxiliar types
 type IStateToProps = IAppState; /* Add other states in case of needed in props */
 
 interface IDispatchersProps {
-	attackStart(params: IAttackStartPayload): IAttackStartAction;
-	attackFinish(params: IAttackFinishPayload): IAttackFinishAction;
+	modalHide(params: IModalHidePayload): IModalHideAction;
 }
 
 // Dispatch and State to props map type
@@ -23,7 +23,7 @@ interface ISharedOwnProps {
 	// Custom props shared between smart and dummy
 }
 
-type ISharedExternalProps = {}; // External libraries props shared between smart and dummy
+type ISharedExternalProps = Toast['props']; // External libraries props shared between smart and dummy
 
 type ISharedProps = ISharedOwnProps & ISharedExternalProps;
 
@@ -46,13 +46,8 @@ export type IDummyProps = IDummyOwnProps & ISmartOwnStateToDummyProps & ISharedP
 
 interface IDummyOwnProps {
 	// Props needed only by the dummy component
-	attacking: IAppState['attacking'];
-	winner: IAppState['winner'];
-	players: Player[];
-	modal: IAppState['modal'];
+	ModalComponent: IModalComponents['component'];
 }
 
 // Types for event handlings
-export interface IHandlers {
-	handleAttack: React.MouseEventHandler<HTMLButtonElement>;
-}
+export interface IHandlers {}
