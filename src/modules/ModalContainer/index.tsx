@@ -10,7 +10,7 @@ import ModalComponents from 'shared/components/Modal';
 import { IModalHideAction } from 'core/store/reducers/AppState/types/actions';
 
 const ModalContainer = (props: ISmartProps) => {
-	const { modal, lastDamagedPlayers, modalHide } = props;
+	const { modal, winner, player, popupTime, modalHide } = props;
 
 	const handleClose = () => modalHide({});
 
@@ -22,6 +22,8 @@ const ModalContainer = (props: ISmartProps) => {
 					ModalComponent={ModalComponents[modal].component}
 					show={!!modal}
 					onClose={handleClose}
+					win={(winner && winner.name) === player.name}
+					delay={popupTime}
 				/>
 			)}
 		</React.Fragment>
@@ -35,15 +37,14 @@ const mapStateToProps: IStateToPropsMap = (state: IAppStore) => ({
 	players: state.app.players,
 	modal: state.app.modal,
 	lastDamagedPlayers: state.app.lastDamagedPlayers,
-	//
+	// Config State
+	popupTime: state.config.popupTime,
+	player: state.config.player,
+	enemies: state.config.enemies,
 });
 
 const mapDispatchToProps: IDispatchToPropsMap = (dispatch: Dispatch) => ({
 	modalHide: () => dispatch<IModalHideAction>(AppActions.modalHide({})),
-	// attackStart: () => dispatch<IAttackStartAction>(AppActions.attackStart({})),
-	// attackFinish: (params: IAttackFinishPayload) => {
-	// 	return dispatch<IAttackFinishAction>(AppActions.attackFinish({ players: params.players }));
-	// },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ModalContainer);

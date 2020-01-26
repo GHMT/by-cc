@@ -4,13 +4,13 @@ import { connect } from 'react-redux';
 import View from './view';
 import { ISmartProps, IStateToPropsMap, IDispatchToPropsMap } from './types';
 import { IAppStore } from 'core/store/reducers';
-import { PlayerAdapterSingleton, Player, IPlayer } from 'core/domain/Player';
+import { PlayerAdapterSingleton, Player } from 'core/domain/Player';
 import AppActions from 'core/store/reducers/AppState/action-creators';
 import { IAttackStartAction, IAttackFinishAction } from 'core/store/reducers/AppState/types/actions';
 import { Dispatch } from 'redux';
-import { attack, IDamagedPlayer } from 'shared/utils/game-algorithm';
+import { attack, IDamagedPlayer, getWinner } from 'shared/utils/game-algorithm';
 import { IAttackFinishPayload } from 'core/store/reducers/AppState/types/action-payloads';
-import ModalComponents, { ModalTypes } from 'shared/components/Modal';
+import { ModalTypes } from 'shared/components/Modal';
 
 const AppContainer = (props: ISmartProps) => {
 	const { players, attacking, winner, modal, attackStart, attackFinish } = props;
@@ -31,13 +31,17 @@ const AppContainer = (props: ISmartProps) => {
 		if (attacking) {
 			console.log('attacking!');
 			const damagedPlayers = attack(playersClasses);
+			const winner = getWinner(playersClasses);
+			console.log('winner: ', winner);
+			const modal = winner ? ModalTypes.GAME_ENDS : ModalTypes.DAMAGE_INFO;
 			setTimeout(() => {
 				attackFinish({
 					players: playersClasses.map(playerCls => PlayerAdapterSingleton.adaptBack(playerCls)),
-					modal: ModalTypes.DAMAGE_INFO,
+					modal,
+					winner: winner ? PlayerAdapterSingleton.adaptBack(winner) : winner,
 					lastDamagedPlayers: damagedPlayers,
 				});
-			}, 3000);
+			}, 2000); // To emulate dices rolling time
 		}
 	}, [attackFinish, attacking, playersClasses]);
 
@@ -72,12 +76,10 @@ const mapDispatchToProps: IDispatchToPropsMap = (dispatch: Dispatch) => ({
 				players: params.players,
 				modal: params.modal,
 				lastDamagedPlayers: params.lastDamagedPlayers,
+				winner: params.winner,
 			}),
 		);
 	},
-
-	// changeLanguage: (params: ISetLanguageRequestPayload) =>
-	// 	dispatch<ISetLanguageRequestAction>(ConfigActions.setLanguageRequest({ language: params.language })),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);

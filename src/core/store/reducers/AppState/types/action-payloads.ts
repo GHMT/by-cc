@@ -10,6 +10,7 @@ export interface IAttackFinishPayload {
 	players: IAppState['players'];
 	modal: IAppState['modal'];
 	lastDamagedPlayers: IAppState['lastDamagedPlayers'];
+	winner: IAppState['winner'];
 }
 // export const attackFinishPayload: IAttackFinishPayload = {
 // 	// language: '',
@@ -18,6 +19,7 @@ export const attackFinishPayload = {
 	players: null,
 	modal: null,
 	lastDamagedPlayers: null,
+	winner: null,
 };
 
 export interface IPlayAgainPayload {

@@ -1,9 +1,8 @@
-import { ModalInfo } from './components';
+import { ModalInfo, ModalGameEnds } from './components';
 
 export enum ModalTypes {
 	DAMAGE_INFO = 'DAMAGE_INFO',
-	// GAME_WIN = 'b',
-	// GAME_OVER = 'c',
+	GAME_ENDS = 'GAME_ENDS',
 }
 //
 // export type IModalType = 'DAMAGE_INFO';
@@ -19,11 +18,9 @@ const ModalComponents: IModal = {
 	DAMAGE_INFO: {
 		component: ModalInfo,
 	},
-	// GAME_WIN: 	// 	type: 'Game Win',
-	// },
-	// GAME_OVER: {
-	// 	type: 'Game Over',
-	// },
+	GAME_ENDS: {
+		component: ModalGameEnds,
+	},
 };
 
 export default ModalComponents;

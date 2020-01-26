@@ -1,21 +1,13 @@
 import { Dispatch } from 'redux';
-import { Toast } from 'react-bootstrap';
 
 import { IAppStore } from 'core/store/reducers';
 import { IAppState } from 'core/store/reducers/AppState/types/state';
-import { IConfigState } from 'core/store/reducers/ConfigState/types/state';
-import { IModalComponents } from 'shared/components/Modal';
-import { IModalHideAction } from 'core/store/reducers/AppState/types/actions';
-import { IModalHidePayload } from 'core/store/reducers/AppState/types/action-payloads';
-import { IDummyProps as IModalInfoProps } from 'shared/components/Modal/components/ModalInfo/types';
-import { IDummyProps as IModalGameEndsProps } from 'shared/components/Modal/components/ModalGameEnds/types';
+import { IDummyProps as IModalSharedProps } from '../types';
 
 // Auxiliar types
-type IStateToProps = IAppState & IConfigState; /* Add other states in case of needed in props */
+type IStateToProps = {}; //IAppState; /* Add other states in case of needed in props */
 
-interface IDispatchersProps {
-	modalHide(params: IModalHidePayload): IModalHideAction;
-}
+interface IDispatchersProps {}
 
 // Dispatch and State to props map type
 export type IStateToPropsMap = (state: IAppStore) => IStateToProps;
@@ -45,16 +37,11 @@ interface ISmartOwnStateToDummyProps {
 }
 
 // Dummy Component types
-export type IDummyProps = IDummyOwnProps &
-	ISmartOwnStateToDummyProps &
-	ISharedProps &
-	IHandlers &
-	IModalInfoProps &
-	IModalGameEndsProps;
+export type IDummyProps = IDummyOwnProps & ISmartOwnStateToDummyProps & ISharedProps & IHandlers & IModalSharedProps;
 
 interface IDummyOwnProps {
 	// Props needed only by the dummy component
-	ModalComponent: IModalComponents['component'];
+	win: boolean;
 }
 
 // Types for event handlings

@@ -5,10 +5,10 @@ import { IDummyProps } from './types';
 // import Player from 'shared/components/Player';
 
 const ModalInfo = (props: IDummyProps) => {
-	const { onClose, show, lastDamagedPlayers } = props;
+	const { onClose, show, lastDamagedPlayers, delay } = props;
 	return (
 		<React.Fragment>
-			<Toast onClose={onClose} show={show} delay={4500} autohide>
+			<Toast onClose={onClose} show={show} delay={delay} autohide>
 				<Toast.Header>
 					{/* <img src="holder.js/20x20?text=%20" className="rounded mr-2" alt="" /> */}
 					<strong className="mr-auto">Bootstrap</strong>
