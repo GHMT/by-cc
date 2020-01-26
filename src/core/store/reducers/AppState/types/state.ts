@@ -15,10 +15,12 @@ export interface IAppState {
 
 export type ImmutableAppState = ImmutableObject<IAppState>;
 
-export const INITIAL_STATE: ImmutableAppState = Immutable<IAppState>({
+export const initialState: IAppState = {
 	attacking: false,
 	winner: undefined,
 	players: [player, ...enemies],
 	modal: undefined,
 	lastDamagedPlayers: undefined,
-});
+};
+
+export const INITIAL_STATE: ImmutableAppState = Immutable<IAppState>(initialState);

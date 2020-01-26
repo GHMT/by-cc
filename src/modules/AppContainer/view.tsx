@@ -5,7 +5,7 @@ import { IDummyProps } from './types';
 import Player from 'shared/components/Player';
 
 const view = (props: IDummyProps) => {
-	const { players, attacking, modal, winner, handleAttack } = props;
+	const { players, attacking, modal, winner, handleAttack, handlePlayAgain } = props;
 	return (
 		<React.Fragment>
 			<div>
@@ -15,9 +15,15 @@ const view = (props: IDummyProps) => {
 					</div>
 				))}
 			</div>
-			<Button variant="primary" disabled={attacking || !!modal || !!winner} onClick={handleAttack}>
-				ATTACK!
-			</Button>
+			{winner ? (
+				<Button variant="primary" onClick={handlePlayAgain}>
+					PLAY AGAIN!
+				</Button>
+			) : (
+				<Button variant="primary" disabled={attacking || !!modal || !!winner} onClick={handleAttack}>
+					ATTACK!
+				</Button>
+			)}
 		</React.Fragment>
 	);
 };

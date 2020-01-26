@@ -5,7 +5,7 @@ import { IDummyProps } from './types';
 // import Player from 'shared/components/Player';
 
 const ModalGameEnds = (props: IDummyProps) => {
-	const { onClose, show } = props;
+	const { onClose, show, win } = props;
 	return (
 		<React.Fragment>
 			<Toast onClose={onClose} show={show}>
@@ -15,7 +15,7 @@ const ModalGameEnds = (props: IDummyProps) => {
 				</Toast.Header>
 				<Toast.Body>
 					<React.Fragment>
-						<div>GAME WIN!</div>
+						<div>{win ? 'YOU WIN!' : 'GAME OVER!'}</div>
 					</React.Fragment>
 				</Toast.Body>
 			</Toast>

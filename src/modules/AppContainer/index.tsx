@@ -6,15 +6,14 @@ import { ISmartProps, IStateToPropsMap, IDispatchToPropsMap } from './types';
 import { IAppStore } from 'core/store/reducers';
 import { PlayerAdapterSingleton, Player } from 'core/domain/Player';
 import AppActions from 'core/store/reducers/AppState/action-creators';
-import { IAttackStartAction, IAttackFinishAction } from 'core/store/reducers/AppState/types/actions';
+import { IAttackStartAction, IAttackFinishAction, IPlayAgainAction } from 'core/store/reducers/AppState/types/actions';
 import { Dispatch } from 'redux';
 import { attack, IDamagedPlayer, getWinner } from 'shared/utils/game-algorithm';
 import { IAttackFinishPayload } from 'core/store/reducers/AppState/types/action-payloads';
 import { ModalTypes } from 'shared/components/Modal';
 
 const AppContainer = (props: ISmartProps) => {
-	const { players, attacking, winner, modal, attackStart, attackFinish } = props;
-
+	const { players, attacking, winner, modal, attackStart, attackFinish, playAgain } = props;
 	const [playersClasses, setPlayersClasses] = useState<Player[]>([]);
 
 	useEffect(() => {
@@ -46,14 +45,16 @@ const AppContainer = (props: ISmartProps) => {
 	}, [attackFinish, attacking, playersClasses]);
 
 	const handleAttack: React.MouseEventHandler<HTMLButtonElement> = () => attackStart({});
+	const handlePlayAgain: React.MouseEventHandler<HTMLButtonElement> = () => playAgain({});
 
 	return (
 		<View
 			players={playersClasses}
 			attacking={attacking}
 			winner={winner}
-			handleAttack={handleAttack}
 			modal={modal}
+			handleAttack={handleAttack}
+			handlePlayAgain={handlePlayAgain}
 		/>
 	);
 };
@@ -69,6 +70,7 @@ const mapStateToProps: IStateToPropsMap = (state: IAppStore) => ({
 });
 
 const mapDispatchToProps: IDispatchToPropsMap = (dispatch: Dispatch) => ({
+	playAgain: () => dispatch<IPlayAgainAction>(AppActions.playAgain({})),
 	attackStart: () => dispatch<IAttackStartAction>(AppActions.attackStart({})),
 	attackFinish: (params: IAttackFinishPayload) => {
 		return dispatch<IAttackFinishAction>(

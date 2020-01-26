@@ -8,7 +8,7 @@ export interface IConfigState {
 	popupTime: number; // In miliseconds
 }
 export const player: IPlayer = { name: 'Max', health: 8, avatar: 'Avatar URL here', dices: Array(2).fill(0) };
-export const enemies: IPlayer[] = [{ name: 'Monster', health: 8, avatar: 'Avatar URL here', dices: Array(2).fill(0) }];
+export const enemies: IPlayer[] = [{ name: 'Monster', health: 2, avatar: 'Avatar URL here', dices: Array(2).fill(0) }];
 
 export type ImmutableConfigState = ImmutableObject<IConfigState>;
 

@@ -3,8 +3,12 @@ import { Dispatch } from 'redux';
 import { Player } from 'core/domain/Player';
 import { IAppStore } from 'core/store/reducers';
 import { IAppState } from 'core/store/reducers/AppState/types/state';
-import { IAttackStartAction, IAttackFinishAction } from 'core/store/reducers/AppState/types/actions';
-import { IAttackStartPayload, IAttackFinishPayload } from 'core/store/reducers/AppState/types/action-payloads';
+import { IAttackStartAction, IAttackFinishAction, IPlayAgainAction } from 'core/store/reducers/AppState/types/actions';
+import {
+	IAttackStartPayload,
+	IAttackFinishPayload,
+	IPlayAgainPayload,
+} from 'core/store/reducers/AppState/types/action-payloads';
 
 // Auxiliar types
 type IStateToProps = IAppState; /* Add other states in case of needed in props */
@@ -12,6 +16,7 @@ type IStateToProps = IAppState; /* Add other states in case of needed in props *
 interface IDispatchersProps {
 	attackStart(params: IAttackStartPayload): IAttackStartAction;
 	attackFinish(params: IAttackFinishPayload): IAttackFinishAction;
+	playAgain(params: IPlayAgainPayload): IPlayAgainAction;
 }
 
 // Dispatch and State to props map type
@@ -55,4 +60,5 @@ interface IDummyOwnProps {
 // Types for event handlings
 export interface IHandlers {
 	handleAttack: React.MouseEventHandler<HTMLButtonElement>;
+	handlePlayAgain: React.MouseEventHandler<HTMLButtonElement>;
 }
