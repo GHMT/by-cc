@@ -30,19 +30,22 @@ const AppContainer = (props: ISmartProps) => {
 		if (attacking) {
 			console.log('attacking!');
 			const damagedPlayers = attack(playersClasses);
+			// const damagedPlayers = attack(players);
 			const winner = getWinner(playersClasses);
+			// const winner = getWinner(players);
 			console.log('winner: ', winner);
 			const modal = winner ? ModalTypes.GAME_ENDS : ModalTypes.DAMAGE_INFO;
 			setTimeout(() => {
 				attackFinish({
 					players: playersClasses.map(playerCls => PlayerAdapterSingleton.adaptBack(playerCls)),
+					// players,
 					modal,
 					winner: winner ? PlayerAdapterSingleton.adaptBack(winner) : winner,
 					lastDamagedPlayers: damagedPlayers,
 				});
 			}, 2000); // To emulate dices rolling time
 		}
-	}, [attackFinish, attacking, playersClasses]);
+	}, [attackFinish, attacking, players, playersClasses]);
 
 	const handleAttack: React.MouseEventHandler<HTMLButtonElement> = () => attackStart({});
 	const handlePlayAgain: React.MouseEventHandler<HTMLButtonElement> = () => playAgain({});
@@ -64,6 +67,7 @@ const mapStateToProps: IStateToPropsMap = (state: IAppStore) => ({
 	attacking: state.app.attacking,
 	winner: state.app.winner,
 	players: state.app.players,
+	// players: playersCls,
 	modal: state.app.modal,
 	lastDamagedPlayers: state.app.lastDamagedPlayers, // TODO: delete if don't used
 	//

@@ -12,6 +12,13 @@ import {
 
 // Auxiliar types
 type IStateToProps = IAppState; /* Add other states in case of needed in props */
+// type IStateToProps = {
+// 	attacking: IAppState['attacking'];
+// 	winner: IAppState['winner'];
+// 	players: Player[];
+// 	modal: IAppState['modal'];
+// 	// lastDamagedPlayers: IAppState['lastDamagedPlayers'];
+// };
 
 interface IDispatchersProps {
 	attackStart(params: IAttackStartPayload): IAttackStartAction;
@@ -30,7 +37,7 @@ interface ISharedOwnProps {
 
 type ISharedExternalProps = {}; // External libraries props shared between smart and dummy
 
-type ISharedProps = ISharedOwnProps & ISharedExternalProps;
+type ISharedProps = ISharedOwnProps & ISharedExternalProps /*& IStateToProps*/;
 
 // Smart Component types
 export type ISmartProps = ISmartOwnProps & ISharedProps & IDispatchersProps & IStateToProps;
