@@ -76,16 +76,15 @@ const mapStateToProps: IStateToPropsMap = (state: IAppStore) => ({
 const mapDispatchToProps: IDispatchToPropsMap = (dispatch: Dispatch) => ({
 	playAgain: () => dispatch<IPlayAgainAction>(AppActions.playAgain({})),
 	attackStart: () => dispatch<IAttackStartAction>(AppActions.attackStart({})),
-	attackFinish: (params: IAttackFinishPayload) => {
-		return dispatch<IAttackFinishAction>(
+	attackFinish: (params: IAttackFinishPayload) =>
+		dispatch<IAttackFinishAction>(
 			AppActions.attackFinish({
 				players: params.players,
 				modal: params.modal,
 				lastDamagedPlayers: params.lastDamagedPlayers,
 				winner: params.winner,
 			}),
-		);
-	},
+		),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);

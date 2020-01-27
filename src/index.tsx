@@ -6,6 +6,9 @@ import './styles/main.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import store from 'core/store';
+import IconLibrary, { Icons } from './shared/icons';
+
+IconLibrary.add(...Icons);
 
 ReactDOM.render(
 	<Provider store={store}>

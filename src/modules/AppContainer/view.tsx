@@ -8,9 +8,9 @@ const view = (props: IDummyProps) => {
 	const { players, attacking, modal, winner, handleAttack, handlePlayAgain } = props;
 	return (
 		<React.Fragment>
-			<div>
+			<div className="row">
 				{players.map((player, index) => (
-					<div key={index}>
+					<div key={index} className="col-6">
 						<Player player={player} attacking={attacking} />
 					</div>
 				))}
