@@ -1,20 +1,17 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Image } from 'react-bootstrap';
 
 import { IDummyProps } from './types';
-import Dice from 'shared/components/Dice';
+import Dices from 'shared/components/Dices';
+import Health from 'shared/components/Health';
 
 const view = (props: IDummyProps) => {
 	const { player, attacking } = props;
 	return (
 		<React.Fragment>
-			<div>{player.name}</div>
-			<div>{player.health}</div>
-			{player.dices.map((diceResult, index) => (
-				<div key={index}>
-					<Dice diceResult={diceResult} isRolling={attacking} />
-				</div>
-			))}
+			<Health health={player.health} />
+			<Image src={player.avatar} roundedCircle />
+			<Dices dices={player.dices} isRolling={attacking} />
 		</React.Fragment>
 	);
 };

@@ -10,9 +10,7 @@ const App: React.FC = () => {
 	return (
 		<div className="App container">
 			<AppHeader logo={logo} />
-			<div className="jumbotron">
-				<h1 className="display-4">Battle Simulator</h1>
-			</div>
+			<h1 className="display-4">Battle Simulator</h1>
 			<ModalContainer />
 			<AppContainer></AppContainer>
 		</div>

@@ -5,9 +5,7 @@ import { ISmartProps, ISmartState } from './types';
 const Player = (props: ISmartProps) => {
 	const { player, attacking } = props;
 
-	// const [dicesResult, setDicesResult] = useState<ISmartState['dicesResult']>(Array(player.dicesAmount).fill(0));
-
-	return <View player={player} attacking={attacking} /*dicesResult={dicesResult}*/ />;
+	return <View player={player} attacking={attacking} />;
 };
 
 export default Player;

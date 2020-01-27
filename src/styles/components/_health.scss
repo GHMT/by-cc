@@ -1,0 +1,18 @@
+.health-container {
+    // display: inline-block;
+    // width: 50%;
+    // height: 40px;
+    // transform: rotate(-90deg);
+    font-weight: bold;
+
+    & .progress {
+        @extend .progress;
+        height: 3rem;
+        font-size: large;
+
+        & .progress-bar {
+            @extend .progress-bar;
+            min-width: 7%;
+        }
+    }
+}

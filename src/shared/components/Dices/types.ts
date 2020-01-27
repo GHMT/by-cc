@@ -1,10 +1,3 @@
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
-
-// Auxiliar types
-export interface IDiceMap {
-	[result: number]: IconProp;
-}
-
 // Dummy and Smart shared props
 interface ISharedOwnProps {
 	// Custom props shared between smart and dummy
@@ -34,7 +27,7 @@ export type IDummyProps = IDummyOwnProps & ISmartOwnStateToDummyProps & ISharedP
 
 interface IDummyOwnProps {
 	// Props needed only by the dummy component
-	diceResult: number;
+	dices: number[];
 	isRolling: boolean;
 }
 
