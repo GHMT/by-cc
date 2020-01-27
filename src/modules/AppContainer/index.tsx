@@ -8,7 +8,7 @@ import { PlayerAdapterSingleton, Player } from 'core/domain/Player';
 import AppActions from 'core/store/reducers/AppState/action-creators';
 import { IAttackStartAction, IAttackFinishAction, IPlayAgainAction } from 'core/store/reducers/AppState/types/actions';
 import { Dispatch } from 'redux';
-import { attack, IDamagedPlayer, getWinner } from 'shared/utils/game-algorithm';
+import { attack, getWinner } from 'core/game/game-algorithm';
 import { IAttackFinishPayload } from 'core/store/reducers/AppState/types/action-payloads';
 import { ModalTypes } from 'shared/components/Modal';
 
@@ -22,23 +22,17 @@ const AppContainer = (props: ISmartProps) => {
 		players.forEach(iPlayer => playersCls.push(PlayerAdapterSingleton.adapt(iPlayer)));
 
 		setPlayersClasses(playersCls);
-		console.log('useEffect players');
 	}, [players]);
 
 	useEffect(() => {
-		console.log('useEffect attacking');
 		if (attacking) {
-			console.log('attacking!');
 			const damagedPlayers = attack(playersClasses);
-			// const damagedPlayers = attack(players);
 			const winner = getWinner(playersClasses);
-			// const winner = getWinner(players);
-			console.log('winner: ', winner);
 			const modal = winner ? ModalTypes.GAME_ENDS : ModalTypes.DAMAGE_INFO;
+
 			setTimeout(() => {
 				attackFinish({
 					players: playersClasses.map(playerCls => PlayerAdapterSingleton.adaptBack(playerCls)),
-					// players,
 					modal,
 					winner: winner ? PlayerAdapterSingleton.adaptBack(winner) : winner,
 					lastDamagedPlayers: damagedPlayers,
@@ -67,7 +61,6 @@ const mapStateToProps: IStateToPropsMap = (state: IAppStore) => ({
 	attacking: state.app.attacking,
 	winner: state.app.winner,
 	players: state.app.players,
-	// players: playersCls,
 	modal: state.app.modal,
 	lastDamagedPlayers: state.app.lastDamagedPlayers, // TODO: delete if don't used
 	//

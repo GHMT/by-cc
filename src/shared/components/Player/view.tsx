@@ -12,7 +12,7 @@ const view = (props: IDummyProps) => {
 			<Health health={player.health} />
 			<h3>{player.name}</h3>
 			<Image src={player.avatar} roundedCircle />
-			<Dices dices={player.dices} isRolling={attacking} />
+			{player.health > 0 && <Dices dices={player.dices} isRolling={attacking} />}
 		</React.Fragment>
 	);
 };

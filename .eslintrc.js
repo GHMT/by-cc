@@ -59,6 +59,7 @@ module.exports = {
 		'**/*.ijmap',
 		'**/*.ico',
 		'**/*.png',
+		'**/*.jpg',
 		'**/codepoints',
 		'**/*.json'
 	]
