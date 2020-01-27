@@ -1,7 +1,6 @@
 import { Dispatch } from 'redux';
 
 import { IAppStore } from 'core/store/reducers';
-import { IAppState } from 'core/store/reducers/AppState/types/state';
 import { IDummyProps as IModalSharedProps } from '../types';
 
 // Auxiliar types

@@ -9,7 +9,7 @@ const Dices = (props: IDummyProps) => {
 	return (
 		<div className={'row justify-content-around'}>
 			{dices.map((diceResult, index) => (
-				<div key={index} className={'col-sm-12 col-md-6 col-lg-3'}>
+				<div key={index} className={'col-6 col-sm-4 col-lg-3'}>
 					{isRolling ? <Spinner animation="grow" className="text-info" /> : <Dice diceResult={diceResult} />}
 				</div>
 			))}

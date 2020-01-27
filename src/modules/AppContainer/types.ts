@@ -12,13 +12,6 @@ import {
 
 // Auxiliar types
 type IStateToProps = IAppState; /* Add other states in case of needed in props */
-// type IStateToProps = {
-// 	attacking: IAppState['attacking'];
-// 	winner: IAppState['winner'];
-// 	players: Player[];
-// 	modal: IAppState['modal'];
-// 	// lastDamagedPlayers: IAppState['lastDamagedPlayers'];
-// };
 
 interface IDispatchersProps {
 	attackStart(params: IAttackStartPayload): IAttackStartAction;

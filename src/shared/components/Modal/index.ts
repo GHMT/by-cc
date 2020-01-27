@@ -4,10 +4,7 @@ export enum ModalTypes {
 	DAMAGE_INFO = 'DAMAGE_INFO',
 	GAME_ENDS = 'GAME_ENDS',
 }
-//
-// export type IModalType = 'DAMAGE_INFO';
-// | 'GAME_WIN'
-// | 'GAME_OVER';
+
 type IModal = { [key in ModalTypes]: IModalComponents };
 
 export interface IModalComponents {

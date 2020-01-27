@@ -19,7 +19,7 @@ const view = (props: IDummyProps) => {
 					</Button>
 				)}
 			</div>
-			<div className="row justify-content-between">
+			<div className="row justify-content-around">
 				{players.map((player, index) => (
 					<div key={index} className="col-sm-12 col-md-5 pb-3 mb-3 player-container border border-success">
 						<Player player={player} attacking={attacking} />

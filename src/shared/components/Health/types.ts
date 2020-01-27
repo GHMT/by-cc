@@ -1,10 +1,3 @@
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
-
-// Auxiliar types
-export interface IHealthMap {
-	[health: number]: string;
-}
-
 // Dummy and Smart shared props
 interface ISharedOwnProps {
 	// Custom props shared between smart and dummy
@@ -26,7 +19,6 @@ interface ISmartOwnState {} // State to be defined and used only inside smart co
 
 interface ISmartOwnStateToDummyProps {
 	// Smart state to be passed to dummy through its props
-	// dicesResult: number[];
 }
 
 // Dummy Component types

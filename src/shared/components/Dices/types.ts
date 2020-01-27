@@ -19,7 +19,6 @@ interface ISmartOwnState {} // State to be defined and used only inside smart co
 
 interface ISmartOwnStateToDummyProps {
 	// Smart state to be passed to dummy through its props
-	// dicesResult: number[];
 }
 
 // Dummy Component types

@@ -3,7 +3,6 @@ import { IAppState } from './state';
 // import { DefaultActionTypes } from 'reduxsauce';
 
 export interface IAttackStartPayload {}
-// export const attackStartPayload: IAttackStartPayload = {};
 export const attackStartPayload = null;
 
 export interface IAttackFinishPayload {
@@ -12,9 +11,6 @@ export interface IAttackFinishPayload {
 	lastDamagedPlayers: IAppState['lastDamagedPlayers'];
 	winner: IAppState['winner'];
 }
-// export const attackFinishPayload: IAttackFinishPayload = {
-// 	// language: '',
-// };
 export const attackFinishPayload = {
 	players: null,
 	modal: null,
@@ -22,28 +18,15 @@ export const attackFinishPayload = {
 	winner: null,
 };
 
-export interface IPlayAgainPayload {
-	// errorMessage: string;
-}
-// export const playAgainPayload: IPlayAgainPayload = {
-// 	// errorMessage: 'An error occurred when setting the language.',
-// };
+export interface IPlayAgainPayload {}
 export const playAgainPayload = null;
 
 export interface IModalShowPayload {
 	modal: IAppState['modal'];
 }
-// export const playAgainPayload: IPlayAgainPayload = {
-// 	// errorMessage: 'An error occurred when setting the language.',
-// };
 export const modalShowPayload = {
 	modal: null,
 };
 
-export interface IModalHidePayload {
-	// modal: string;
-}
-// export const playAgainPayload: IPlayAgainPayload = {
-// 	// errorMessage: 'An error occurred when setting the language.',
-// };
+export interface IModalHidePayload {}
 export const modalHidePayload = null;

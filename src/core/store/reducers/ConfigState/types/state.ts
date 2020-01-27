@@ -19,8 +19,20 @@ export const enemies: IPlayer[] = [
 		name: 'Majin Boo',
 		health: 100,
 		avatar: Enemies.MajinBoo,
-		dices: Array(4).fill(0),
+		dices: Array(2).fill(0),
 	},
+	// {
+	// 	name: 'Freezer',
+	// 	health: 100,
+	// 	avatar: Enemies.Freezer,
+	// 	dices: Array(4).fill(0),
+	// },
+	// {
+	// 	name: 'Vegeta',
+	// 	health: 100,
+	// 	avatar: Enemies.Vegeta,
+	// 	dices: Array(5).fill(0),
+	// },
 ];
 
 export type ImmutableConfigState = ImmutableObject<IConfigState>;

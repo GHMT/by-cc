@@ -1,7 +1,7 @@
 import React from 'react';
 import { ProgressBar, ProgressBarProps } from 'react-bootstrap';
 
-import { IDummyProps, IHealthMap } from './types';
+import { IDummyProps } from './types';
 
 const healthMap = (health: number, maxHealth = 100): ProgressBarProps['variant'] => {
 	let variant: ProgressBarProps['variant'] = undefined;

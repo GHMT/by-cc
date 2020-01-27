@@ -18,7 +18,6 @@ export interface IPlayer {
 
 export class Player {
 	private _health: number;
-	// private _dicesResult: number[];
 	readonly name: string;
 	readonly avatar: string;
 	private _dices: number[];
@@ -28,9 +27,6 @@ export class Player {
 		this.avatar = player.avatar;
 		this._health = player.health;
 		this._dices = player.dices;
-
-		// this._dicesResult = Array(this.dicesAmount).fill(0);
-		// console.log('dices length', this._dicesResult.length);
 	}
 
 	get health(): number {
@@ -46,17 +42,9 @@ export class Player {
 	}
 
 	rollDices(): number[] {
-		// const dicesResult: number[] = [];
-		// let i = 0;
-		// for (i; i < this.dices.length; i++) {
-		// 	// TODO: enhance this
-		// 	dicesResult.push(getRndInteger(1, 6));
-		// }
 		this._dices = this._dices.map(() => getRndInteger(1, 6));
 
 		return this.dices;
-		// this._dicesResult = this._dicesResult.map(oldDiceResult => getRndInteger(1, 6));
-		// return this._dicesResult.reduce((acc, diceResult) => acc + diceResult, 0);
 	}
 }
 

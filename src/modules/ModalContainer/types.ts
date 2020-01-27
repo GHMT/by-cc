@@ -1,5 +1,4 @@
 import { Dispatch } from 'redux';
-import { Toast } from 'react-bootstrap';
 
 import { IAppStore } from 'core/store/reducers';
 import { IAppState } from 'core/store/reducers/AppState/types/state';

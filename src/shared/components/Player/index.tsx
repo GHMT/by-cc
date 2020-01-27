@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import View from './view';
-import { ISmartProps, ISmartState } from './types';
+import { ISmartProps } from './types';
 
 const Player = (props: ISmartProps) => {
 	const { player, attacking } = props;
