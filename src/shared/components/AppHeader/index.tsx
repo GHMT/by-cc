@@ -4,7 +4,7 @@ import { Navbar } from 'react-bootstrap';
 import companyLogo from 'logo.svg';
 import { IAppHeaderProps } from './types';
 
-const AppHeader = ({ logo = companyLogo, companyName = 'Front-End' }: IAppHeaderProps) => (
+const AppHeader = ({ logo = companyLogo, companyName = 'Front-End Code Challenge' }: IAppHeaderProps) => (
 	<React.Fragment>
 		<Navbar bg="info" variant="dark" sticky="top">
 			<Navbar.Brand>
