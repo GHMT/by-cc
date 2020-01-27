@@ -8,7 +8,7 @@ const view = (props: IDummyProps) => {
 	const { players, attacking, modal, winner, handleAttack, handlePlayAgain } = props;
 	return (
 		<React.Fragment>
-			<div className="row mb-5">
+			<div className="row mb-3 mt-5 mt-sm-0">
 				{winner ? (
 					<Button variant="primary" onClick={handlePlayAgain}>
 						PLAY AGAIN!

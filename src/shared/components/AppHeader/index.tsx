@@ -8,7 +8,7 @@ const AppHeader = ({ logo = companyLogo, companyName = 'Front-End' }: IAppHeader
 	<React.Fragment>
 		<Navbar bg="info" variant="dark" sticky="top">
 			<Navbar.Brand>
-				<img alt="" src={logo} width="30" height="24" className="d-inline-block mr-3" />
+				<img alt="" src={logo} width="50" height="44" className="d-inline-block mr-3" />
 			</Navbar.Brand>
 			<div className="col" />
 			{companyName && (

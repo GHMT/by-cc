@@ -1,6 +1,14 @@
-.modal-container .toast {
-    z-index: 1;
-    position: absolute;
-    width: 400px;
-    max-width: 450px;
+.modal-container {
+    & .toast {
+        @extend .toast;
+        z-index: 1;
+        position: absolute;
+        width: 400px;
+        max-width: 450px;
+
+        & .toast-body {
+            @extend .toast-body;
+            font-weight: bold;
+        }
+    }
 }

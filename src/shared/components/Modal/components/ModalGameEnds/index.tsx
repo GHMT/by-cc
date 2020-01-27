@@ -8,11 +8,11 @@ const ModalGameEnds = (props: IDummyProps) => {
 	const { onClose, show, win } = props;
 	return (
 		<React.Fragment>
-			<Toast onClose={onClose} show={show}>
-				<Toast.Header>
-					{/* <img src="holder.js/20x20?text=%20" className="rounded mr-2" alt="" /> */}
+			<Toast onClose={onClose} show={show} className={`${win ? 'bg-success' : 'bg-danger'} text-white`}>
+				{/* <Toast.Header>
+					<img src="holder.js/20x20?text=%20" className="rounded mr-2" alt="" />
 					<strong className="mr-auto">Bootstrap</strong>
-				</Toast.Header>
+				</Toast.Header> */}
 				<Toast.Body>
 					<React.Fragment>
 						<div>{win ? 'YOU WIN!' : 'GAME OVER!'}</div>

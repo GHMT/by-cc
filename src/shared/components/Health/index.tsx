@@ -9,7 +9,7 @@ const healthMap = (health: number, maxHealth = 100): ProgressBarProps['variant']
 	if (health > 80) variant = 'success';
 	else if (health > 50) variant = 'info';
 	else if (health > 30) variant = 'warning';
-	else if (health > 0) variant = 'danger';
+	else if (health >= 0) variant = 'danger';
 
 	return variant;
 };

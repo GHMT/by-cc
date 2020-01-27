@@ -1,6 +1,6 @@
 import React from 'react';
 
-import logo from './logo.svg';
+import logo from 'assets/byhiras_logo.png';
 import './App.scss';
 import AppContainer from 'modules/AppContainer';
 import ModalContainer from 'modules/ModalContainer';
