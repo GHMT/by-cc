@@ -7,7 +7,7 @@ import Player from 'shared/components/Player';
 const view = (props: IDummyProps) => {
 	const { players, attacking, modal, winner, handleAttack, handlePlayAgain } = props;
 	return (
-		<React.Fragment>
+		<div className="app-container">
 			<div className="row mb-3 mt-5 mt-sm-0">
 				{winner ? (
 					<Button variant="primary" onClick={handlePlayAgain}>
@@ -26,7 +26,7 @@ const view = (props: IDummyProps) => {
 					</div>
 				))}
 			</div>
-		</React.Fragment>
+		</div>
 	);
 };
 
