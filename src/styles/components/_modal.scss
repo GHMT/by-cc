@@ -1,10 +1,18 @@
 .modal-container {
+    @extend .justify-content-center;
+
     & .toast {
         @extend .toast;
         z-index: 1;
-        position: absolute;
+        position: fixed;
         width: 400px;
         max-width: 450px;
+
+        // @media screen 
+        // and (min-width: map-get($grid-breakpoints, "sm"))
+        // and (max-width: map-get($grid-breakpoints, "md")) {
+        //     width: 300px;
+        // }
 
         & .toast-body {
             @extend .toast-body;

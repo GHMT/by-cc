@@ -59,7 +59,7 @@
     "test:watch": "react-scripts test --coverage --watchAll=true",
     "eject": "react-scripts eject",
     "lint": "concurrently \"npm:es-lint\" \"npm:style-lint\"",
-    "es-lint": "eslint './**' --color --quiet --fix",
+    "es-lint": "eslint ./** --color --quiet --fix",
     "style-lint": "stylelint ./**/*.scss --color --quiet --fix"
   },
   "eslintConfig": {

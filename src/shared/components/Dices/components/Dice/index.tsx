@@ -15,13 +15,13 @@ const diceMap: IDiceMap = {
 const Dices = (props: IDummyProps) => {
 	const { diceResult } = props;
 	return (
-		<React.Fragment>
+		<div className={'mb-2'}>
 			{Object.keys(diceMap).includes(diceResult.toString()) ? (
 				<FontAwesomeIcon className="text-info" icon={diceMap[diceResult]} style={{ fontSize: '4em' }} />
 			) : (
 				<FontAwesomeIcon className="text-info" icon="dice" style={{ fontSize: '4em' }} />
 			)}
-		</React.Fragment>
+		</div>
 	);
 };
 

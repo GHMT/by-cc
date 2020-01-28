@@ -19,7 +19,7 @@ const ModalInfo = (props: IDummyProps) => {
 						))
 					) : (
 						<React.Fragment>
-							<div>No players hit!</div>
+							<div>No players were hit!</div>
 						</React.Fragment>
 					)}
 				</Toast.Body>

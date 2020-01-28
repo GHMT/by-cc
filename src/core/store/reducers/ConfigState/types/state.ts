@@ -9,7 +9,7 @@ export interface IConfigState {
 	popupTime: number; // In miliseconds
 }
 export const player: IPlayer = {
-	name: 'Max',
+	name: 'You',
 	health: 100,
 	avatar: Player,
 	dices: Array(2).fill(0),
@@ -25,7 +25,7 @@ export const enemies: IPlayer[] = [
 	// 	name: 'Freezer',
 	// 	health: 100,
 	// 	avatar: Enemies.Freezer,
-	// 	dices: Array(4).fill(0),
+	// 	dices: Array(5).fill(0),
 	// },
 	// {
 	// 	name: 'Vegeta',

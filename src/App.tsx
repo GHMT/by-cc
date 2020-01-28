@@ -9,8 +9,8 @@ import AppHeader from 'shared/components/AppHeader';
 const App: React.FC = () => {
 	return (
 		<div className="App container">
-			<AppHeader logo={logo} />
-			<h1 className="display-4">Battle Simulator</h1>
+			<AppHeader logo={logo} appTitle={'Battle Simulator'} />
+			<h1 className="display-4 d-sm-none">Battle Simulator</h1>
 			<ModalContainer />
 			<AppContainer></AppContainer>
 		</div>
