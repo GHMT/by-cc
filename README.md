@@ -52,6 +52,17 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 *  Integration & e2e tests
 *  Unit testing
 
+## VS Code Plugins
+
+If you are using VS Code as your IDE, it is recommended that you install the following plugins:
+
+1. [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+2. [Stylelint](https://marketplace.visualstudio.com/items?itemName=hex-ci.stylelint-plus)
+3. [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+4. [Jest](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest)
+
+You will find some setup for these plugins in the .vscode folder of this project, in order to make your development stage easier and faster. 
+
 ## Run instructions
 
 **NOTE:** be sure to have installed node in your environment. At the time of developing this app I am using node version 12.14.0 and npm version 6.13.4.
