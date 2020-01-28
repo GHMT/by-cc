@@ -1,4 +1,61 @@
+# Battle Simulator
+
+## The Specification
+
+The simulator should be developed in JavaScript or TypeScript using React. It is preferred but not required to use
+reducer-based state management (e.g useReducer, Redux). You may use any other libraries or UI frameworks you
+wish so long as you have implemented the core requirements yourself.
+
+In this game you (The Player) are fighting some kind of monster (your choice). Both characters begin with 100
+health points. The two health values must be represented somehow on the screen.
+
+The UI consists of an “Attack!” button. When you click this, the following sequence should happen:
+
+1. Two dice are rolled for The Player
+2. Two dice are rolled for The Monster. All dice are 6-sided. For each roll pick a random number between 1 and 6. The results of all 4 rolls should be displayed.
+3. Whoever scores the lowest total will take damage and lose health points. The amount of health they
+lose will be the difference between the two rolls. So: if the player rolls a 2 and a 3, and the monster rolls
+a 4 and a 5, the player will take (4+5)-(3+2) = 4 damage.
+4. Now the player can attack again when they like
+
+If The Player loses all their health the game stops and “Game Over” is displayed in large red text.
+
+If the monster loses all their health the game ends and “You Win” is displayed in large green text.
+
+**NOTE:** *there are 2 contributors shown (GHMT and matomase). Both are me from different laptops and github users.*
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Production-ready architecture and building considerations
+
+*  Typescript for less error prone code
+*  sass & [7-1 pattern architecture](https://sass-guidelin.es/#the-7-1-pattern)
+*  Configuration for unit + snapshot tests with Jest & Enzyme (80% coverage setup)
+*  Modules, components and domain separation of concerns for code scalability
+*  [Model-adapter pattern](https://dev.to/florimondmanca/consuming-apis-in-angular--the-model-adapter-pattern-3fk5) for API-to-APP (no API but Redux data in this case) objects transformation (with some personal enhancements like adding an interface and specific typings)
+*  Build ready for targeting different browsers and versions (through [browserlist](https://github.com/browserslist/browserslist) + [postcss](https://postcss.org/) & [babel](https://babeljs.io/))
+
+## Other considerations + bonus implementations
+
+*  Responsiveness through [Bootstrap](https://getbootstrap.com/)
+*  Scalable enough to add more players
+*  Scalable enough to add more dices to each player
+
+
+## Out of scope (due to lack of time)
+
+*  Error handling module for expected and unexpected exceptions
+*  Some parts of the UI change their dimensions when some elements appear / dissapear
+*  Enhancements on image resizing during viewport changes (responsivenes of player's avatars)
+*  Integration & e2e tests
+*  Unit testing
+
+## Run instructions
+
+**NOTE:** be sure to have installed node in your environment. At the time of developing this app I am using node version 12.14.0 and npm version 6.13.4.
+
+1. `npm install`
+2. `npm start`
 
 ## Available Scripts
 
@@ -12,7 +69,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `npm test`
+### `npm test` (no tests implemented at the moment; this script fails)
 
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.

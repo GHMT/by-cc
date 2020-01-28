@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 // import './index.css';
@@ -12,7 +12,9 @@ IconLibrary.add(...Icons);
 
 ReactDOM.render(
 	<Provider store={store}>
-		<App />
+		<Suspense fallback={<div>Loading...</div>}>
+			<App />
+		</Suspense>
 	</Provider>,
 	document.getElementById('root'),
 );
