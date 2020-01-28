@@ -48,7 +48,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 *  Error handling module for expected and unexpected exceptions
 *  Some parts of the UI change their dimensions when some elements appear / dissapear
-*  Enhancements on image resizing during viewport changes (responsivenes of player's avatars)
+*  Enhancements on image resizing during viewport changes (responsiveness of player's avatars)
 *  Integration & e2e tests
 *  Unit testing
 
