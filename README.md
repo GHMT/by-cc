@@ -32,15 +32,17 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 *  sass & [7-1 pattern architecture](https://sass-guidelin.es/#the-7-1-pattern)
 *  Configuration for unit + snapshot tests with Jest & Enzyme (80% coverage setup)
 *  Modules, components and domain separation of concerns for code scalability
+*  [Redux](https://redux.js.org/) for reducer-based state management
+*  Linting ([eslint](https://www.npmjs.com/package/eslint), [stylelint](https://www.npmjs.com/package/stylelint)) and code formatting tools ([prettier](https://www.npmjs.com/package/prettier)) for code quality and readability.
+*  Git hooks made easy with [husky](https://www.npmjs.com/package/husky) to assure code is in remote as defined by the linting and code formatting configurations
 *  [Model-adapter pattern](https://dev.to/florimondmanca/consuming-apis-in-angular--the-model-adapter-pattern-3fk5) for API-to-APP (no API but Redux data in this case) objects transformation (with some personal enhancements like adding an interface and specific typings)
 *  Build ready for targeting different browsers and versions (through [browserlist](https://github.com/browserslist/browserslist) + [postcss](https://postcss.org/) & [babel](https://babeljs.io/))
 
 ## Other considerations + bonus implementations
 
 *  Responsiveness through [Bootstrap](https://getbootstrap.com/)
-*  Scalable enough to add more players
-*  Scalable enough to add more dices to each player
-
+*  Scalable enough to add more players (by adding one player in an array; re-build needed at the moment)
+*  Scalable enough to add more dices to each player (by just changing a number in the initial configuration; re-build needed at the moment)
 
 ## Out of scope (due to lack of time)
 
