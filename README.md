@@ -34,7 +34,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 *  Modules, components and domain separation of concerns for code scalability
 *  [Redux](https://redux.js.org/) for reducer-based state management
 *  Linting ([eslint](https://www.npmjs.com/package/eslint), [stylelint](https://www.npmjs.com/package/stylelint)) and code formatting tools ([prettier](https://www.npmjs.com/package/prettier)) for code quality and readability.
-*  Git hooks made easy with [husky](https://www.npmjs.com/package/husky) to assure code is in remote as defined by the linting and code formatting configurations together with all passed unit test and coverage (note that tests are not implemented yet, but everything is configured) 
+*  Git hooks made easy with [husky](https://www.npmjs.com/package/husky) to assure code is in remote as defined by the linting and code formatting configurations, together with all passed unit tests and coverage (note that tests are not implemented yet, but everything is configured) 
 *  [Model-adapter pattern](https://dev.to/florimondmanca/consuming-apis-in-angular--the-model-adapter-pattern-3fk5) for API-to-APP (no API but Redux data in this case) objects transformation (with some personal enhancements like adding an interface and specific typings)
 *  Build ready for targeting different browsers and versions (through [browserlist](https://github.com/browserslist/browserslist) + [postcss](https://postcss.org/) & [babel](https://babeljs.io/))
 
