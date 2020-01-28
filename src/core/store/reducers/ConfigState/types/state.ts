@@ -25,7 +25,7 @@ export const enemies: IPlayer[] = [
 	// 	name: 'Freezer',
 	// 	health: 100,
 	// 	avatar: Enemies.Freezer,
-	// 	dices: Array(5).fill(0),
+	// 	dices: Array(4).fill(0),
 	// },
 	// {
 	// 	name: 'Vegeta',
